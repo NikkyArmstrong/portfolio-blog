@@ -1,5 +1,30 @@
 import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import Metadata from "../components/metadata"
 
-export default function Home() {
-  return <div>Hello world!</div>
+export const pageQuery = graphql`
+  query MetadataQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+
+    image: file(base: { eq: "Growlithe.jpg" }) {
+      publicURL
+    }
+  }
+`
+
+export default function Index({data}) {
+  return (
+    <Layout>
+      <Metadata title="Home" description="This is my home page" />
+      <h1>Home page</h1>
+      <h2>I'm Ibas, a teacher and a Gatsby.js developer</h2>
+      <img alt="Cute dog" src={data.image.publicURL} />
+    </Layout>
+  )
 }
