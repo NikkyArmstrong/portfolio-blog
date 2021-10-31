@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Metadata = ({ title, description }) => {
+const Metadata = ({ title, description, keywords }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -10,6 +10,8 @@ const Metadata = ({ title, description }) => {
           siteMetadata {
             title
             description
+            author
+            keywords
           }
         }
       }
@@ -17,11 +19,14 @@ const Metadata = ({ title, description }) => {
   )
   const metaTitle = title || data.site.siteMetadata.title
   const metaDescription = description || data.site.siteMetadata.description
-  // TODO: Add keywords, author
+  const metaAuthor = data.site.siteMetadata.author
+  const metaKeywords = keywords || data.site.siteMetadata.keywords
   return (
     <Helmet>
       <title>{`${metaTitle} | ${data.site.siteMetadata.title}`}</title>
       <meta name="description" content={metaDescription} />
+      <meta name="author" content={metaAuthor} />
+      <meta name="keywords" content={metaKeywords} />
     </Helmet>
   )
 }

@@ -6,9 +6,10 @@
 
 module.exports = {
   siteMetadata: {
-    title: "Ibas Majid",
-    description: "I teach JavaScript, React, GraphQL and Gatsby",
-    author: "Ibaslogic",
+    title: "Nikky Armstrong",
+    description: "Software Engineer",
+    author: "nikkyarmstrong",
+    keywords: "C++, portfolio, blog, TDD",
   },
   plugins: [
       "gatsby-plugin-sass",

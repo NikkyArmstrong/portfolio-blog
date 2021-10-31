@@ -23,7 +23,7 @@ export default function Index({data}) {
     <Layout>
       <Metadata title="Home" description="This is my home page" />
       <h1>Home page</h1>
-      <h2>I'm Ibas, a teacher and a Gatsby.js developer</h2>
+      <h2>Software Engineer and Game Developer</h2>
       <img alt="Cute dog" src={data.image.publicURL} />
     </Layout>
   )
