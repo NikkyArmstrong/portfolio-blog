@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
 import * as postStyles from "../styles/blogPost.module.scss"
@@ -11,11 +11,10 @@ export const query = graphql`
       frontmatter {
         title
         date(formatString: "DD MMMM, YYYY")
+        featuredalt
         featured {
           childImageSharp {
-            fluid(maxWidth: 750) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData
           }
         }
       }
@@ -26,6 +25,8 @@ export const query = graphql`
 `
 
 const BlogPost = props => {
+  const image = getImage(props.data.markdownRemark.frontmatter.featured)
+
   return (
     <Layout>
       <Metadata title={props.data.markdownRemark.frontmatter.title} />
@@ -37,11 +38,9 @@ const BlogPost = props => {
         </span>
         {
           props.data.markdownRemark.frontmatter.featured && (
-            <Img className={postStyles.featured}
-              fluid={
-                props.data.markdownRemark.frontmatter.featured.childImageSharp.fluid
-              }
-              alt={props.data.markdownRemark.frontmatter.title}
+            <GatsbyImage className={postStyles.featured}
+              image={image}
+              alt={props.data.markdownRemark.frontmatter.featuredalt}
             />
           )
         }

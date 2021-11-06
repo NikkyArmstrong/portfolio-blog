@@ -1,0 +1,48 @@
+{
+    "title": "Nikky Armstrong",
+    "description": "Software Engineer",
+    "author": "Nikky Armstrong",
+    "keywords": "C++, portfolio, blog, TDD",
+    "header": {
+        "title": "Nikky Armstrong",
+        "tagline": "Lead Programmer, Silver Rain Games. Recently made the switch from mining software in Australia to game development in the UK. Passionate about mentoring, teaching, and letting go of the small stuff.",
+        "profile_img": "https://res.cloudinary.com/practicaldev/image/fetch/s--GOxGx1FS--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/647903/ddab464c-8395-4671-9e44-a569b7850b06.jpeg",
+        "profile_img_alt": "Author avatar",
+        "nav_links": [
+            {
+                "label": "Home",
+                "url": "/"
+            },
+            {
+                "label": "Blog",
+                "url": "/blog/"
+            },
+            {
+                "label": "About",
+                "url": "/about/"
+            }
+        ],
+        "social_links": [
+            {
+                "label": "Twitter",
+                "url": "https://twitter.com/nikkyarmstrong",
+                "icon_class": "twitter-square"
+            },
+            {
+                "label": "LinkedIn",
+                "url": "https://www.linkedin.com/in/nikky-armstrong/",
+                "icon_class": "linkedin"
+            },
+            {
+                "label": "GitHub",
+                "url": "https://github.com/NikkyArmstrong",
+                "icon_class": "github-square"
+            },
+            {
+                "label": "DEV",
+                "url": "https://dev.to/nikkyarmstrong",
+                "icon_class": "dev"
+            }
+        ]
+    }
+}

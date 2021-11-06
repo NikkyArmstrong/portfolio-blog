@@ -1,3 +1,5 @@
+@import 'variables';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -12,4 +14,30 @@
   margin: 0 auto;
   max-width: 750px;
   padding: 3rem 1rem 4rem;
+  text-align: justify;
+
+  a {
+    font-weight: bold;
+    color: $secondaryColor;
+
+    &:hover {
+      color: lighten($secondaryColor, 10%);
+    }
+
+    &:visited {
+      color: lighten($primaryColor, 10%);
+    }
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .aligner {
+    margin-left: 25vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .aligner {
+    margin: 0 auto;
+  }
 }

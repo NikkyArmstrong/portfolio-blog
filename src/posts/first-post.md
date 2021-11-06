@@ -2,6 +2,7 @@
 title: "First Gatsby Blog Post"
 date: "2020-01-18"
 featured: "../images/Growlithe.jpg"
+featuredalt: "Growlithe the dog looking happy"
 ---
 
 Lorem ipsum dolor sit amet consectetur adipisicing elit.

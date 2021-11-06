@@ -4,15 +4,13 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+const siteMetadata = require('./site-metadata.json');
+
 module.exports = {
-  siteMetadata: {
-    title: "Nikky Armstrong",
-    description: "Software Engineer",
-    author: "nikkyarmstrong",
-    keywords: "C++, portfolio, blog, TDD",
-  },
+  siteMetadata: siteMetadata,
   plugins: [
       "gatsby-plugin-sass",
+      "gatsby-plugin-image",
       "gatsby-plugin-sharp",
       "gatsby-transformer-sharp",
       "gatsby-plugin-react-helmet",

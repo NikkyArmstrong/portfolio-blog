@@ -1,30 +1,20 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
 
-export const pageQuery = graphql`
-  query MetadataQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faDev, faTwitterSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
+import { faSquare } from '@fortawesome/free-solid-svg-icons'
+library.add(faDev, faTwitterSquare, faLinkedin, faGithubSquare, faSquare)
 
-    image: file(base: { eq: "Growlithe.jpg" }) {
-      publicURL
-    }
-  }
-`
-
-export default function Index({data}) {
+export default function Index() {
   return (
     <Layout>
       <Metadata title="Home" description="This is my home page" />
       <h1>Home page</h1>
-      <h2>Software Engineer and Game Developer</h2>
-      <img alt="Cute dog" src={data.image.publicURL} />
+      <p>Software Engineer and Game Developer</p>
+      <StaticImage alt="My dog Growlithe" placeholder="blurred" src="../images/Growlithe.jpg" />
     </Layout>
   )
 }

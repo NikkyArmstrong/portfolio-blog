@@ -1,27 +1,11 @@
-.header {
-  position: relative;
-  height: 326px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("../images/Growlithe.jpg");
-}
+@import 'variables';
 
-.overlay {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #000;
-  opacity: 0.5;
+.header {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  background-color: $primaryColor;
 }
 
 .hero-content {
-  position: absolute;
-  top: 35%;
   margin: 0;
   text-align: center;
   width: 100%;
@@ -31,62 +15,158 @@
 .brand {
   margin: 0;
   padding: 0 0 10px;
-  font-size: 48px;
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: 5.5px;
 
   a {
-    color: #fff;
+    color: $mainWhite;
   }
 }
 
 .description {
   margin: 0;
   padding: 0 0 10px;
-  font-size: 12px;
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 3.5px;
   opacity: 0.7;
-  color: #fff;
+  color: $mainWhite;
 }
 
-.nav-container {
+.accent {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba($secondaryColor, 0.6);
 }
 
 .nav-list {
-  margin: 0;
   display: flex;
-  flex-flow: wrap;
-  justify-content: center;
   padding: 0;
   list-style: none;
 
   li {
     letter-spacing: 0.05em;
     background: none;
-    padding: 7px 14px 10px;
   }
 
   a {
     text-transform: uppercase;
-    color: #fff;
-    font-size: 12px;
-    opacity: 0.7;
+    color: $mainWhite;
+    opacity: 0.8;
 
     &:hover {
-      text-decoration: underline;
+      opacity: 1.0;
     }
   }
 }
 
-.active-menu-item {
-  text-decoration: underline;
+@media only screen and (min-width: 801px) {
+  .side-bar-container {
+    margin-right: 25px;
+  }
+
+  .header {
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 25vw;
+
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  .brand {
+    font-size: 2.5vw;
+  }
+
+  .description {
+    font-size: 1vw;
+  }
+
+  .accent {
+    bottom: 0;
+    right: 0;
+    top: 0;
+    width: 25px;
+    border-left: 2px solid rgba($secondaryColor, 1.0);
+  }
+
+  .nav-container {
+    border-top: 2px solid rgba($secondaryColor, 1.0);
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .nav-list {
+    margin: 20px 0;
+    flex-flow: column;
+    text-align: center;
+
+    li {
+      padding: 0 0 1vw;
+    }
+
+    a {
+      font-size: 1.2vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .header {
+    position: relative;
+    height: 326px;
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 35%;
+  }
+
+  .brand {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .accent {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    border-top: 2px solid rgba($secondaryColor, 1.0);
+  }
+
+  .nav-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .nav-list {
+    margin: 0;
+    flex-flow: wrap;
+    justify-content: center;
+
+    li {
+      padding: 7px 14px 10px;
+    }
+
+    a {
+      font-size: 12px;
+    }
+  }
+
+  .social-container {
+    position: absolute;
+    top: 65%;
+    left: 0;
+    right: 0;
+  }
 }

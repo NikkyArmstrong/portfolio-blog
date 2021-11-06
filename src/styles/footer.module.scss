@@ -1,9 +1,29 @@
-.site-footer {
-  background-color: #000;
-  color: #515151;
+@import 'variables';
+
+@media only screen and (min-width: 801px) {
+  .site-footer {
+    margin-left: 25vw;
+  }
 }
+
+@media only screen and (max-width: 800px) {
+  .site-footer {
+    margin-left: 0;
+  }
+}
+
+.site-footer {
+  background-color: $primaryColor;
+  color: $mainWhite;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
 .container {
-  margin: 0 auto;
-  max-width: 750px;
   padding: 1rem;
+  opacity: 0.8;
 }

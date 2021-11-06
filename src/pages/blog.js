@@ -1,9 +1,36 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
 import * as blogStyles from "../styles/blog.module.scss"
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date(fromNow: true, formatString: "DD MMMM, YYYY")
+            featuredalt
+            featured {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+          timeToRead
+          excerpt
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`
 
 export default function Blog({data}) {
   return (
@@ -26,9 +53,9 @@ export default function Blog({data}) {
               </div>
               {
                 edge.node.frontmatter.featured && (
-                  <Img className={blogStyles.featured}
-                    fluid={edge.node.frontmatter.featured.childImageSharp.fluid}
-                    alt={edge.node.frontmatter.title}
+                  <GatsbyImage className={blogStyles.featured}
+                    image={edge.node.frontmatter.featured?.childImageSharp?.gatsbyImageData}
+                    alt={edge.node.frontmatter.featuredalt}
                   />
                 )
               }
@@ -44,30 +71,3 @@ export default function Blog({data}) {
   )
 }
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date(fromNow: true, formatString: "DD MMMM, YYYY")
-            featured {
-              childImageSharp {
-                fluid(maxWidth: 750) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          timeToRead
-          excerpt
-          id
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`
