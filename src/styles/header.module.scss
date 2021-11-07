@@ -35,7 +35,6 @@
 }
 
 .accent {
-  position: absolute;
   background: rgba($secondaryColor, 0.6);
 }
 
@@ -60,7 +59,7 @@
   }
 }
 
-@media only screen and (min-width: 801px) {
+@media only screen and (min-width: 951px) {
   .side-bar-container {
     margin-right: 25px;
   }
@@ -91,6 +90,8 @@
     right: 0;
     top: 0;
     width: 25px;
+    height: 100%;
+    position: absolute;
     border-left: 2px solid rgba($secondaryColor, 1.0);
   }
 
@@ -115,15 +116,16 @@
   }
 }
 
-@media only screen and (max-width: 800px) {
-  .header {
-    position: relative;
-    height: 326px;
+@media only screen and (max-width: 950px) {
+  .side-bar-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .hero-content {
-    position: absolute;
-    top: 35%;
+  .header {
+    padding: 50px 0px 0px;
   }
 
   .brand {
@@ -135,18 +137,13 @@
   }
 
   .accent {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    border-top: 2px solid rgba($secondaryColor, 1.0);
+    display: none;
   }
 
   .nav-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
+    background: rgba($secondaryColor, 0.6);
+    border-top: 2px solid $secondaryColor;
   }
 
   .nav-list {
@@ -161,12 +158,5 @@
     a {
       font-size: 12px;
     }
-  }
-
-  .social-container {
-    position: absolute;
-    top: 65%;
-    left: 0;
-    right: 0;
   }
 }
