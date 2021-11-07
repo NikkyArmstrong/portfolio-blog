@@ -13,6 +13,7 @@ export const query = graphql`
         date(formatString: "DD MMMM, YYYY")
         featuredalt
         featured {
+          publicURL
           childImageSharp {
             gatsbyImageData
           }
@@ -26,10 +27,11 @@ export const query = graphql`
 
 const BlogPost = props => {
   const image = getImage(props.data.markdownRemark.frontmatter.featured)
+  const imagePublicUrl = props.data.markdownRemark.frontmatter.featured.publicURL
 
   return (
     <Layout>
-      <Metadata title={props.data.markdownRemark.frontmatter.title} />
+      <Metadata title={props.data.markdownRemark.frontmatter.title} image={imagePublicUrl} />
       <div className={postStyles.content}>
         <h1>{props.data.markdownRemark.frontmatter.title}</h1>
         <span className={postStyles.meta}>

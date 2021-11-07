@@ -1,8 +1,10 @@
 {
     "title": "Nikky Armstrong",
-    "description": "Lead Programmer & Game Developer",
+    "description": "Lead Programmer",
     "author": "Nikky Armstrong",
     "keywords": "C++, portfolio, blog, TDD",
+    "siteUrl": "https://nikkyarmstrong.com/",
+    "twitterHandle": "@nikkyarmstrong",
     "header": {
         "title": "Nikky Armstrong",
         "tagline": "Lead Programmer, Silver Rain Games. Recently made the switch from mining software in Australia to game development in the UK. Passionate about mentoring, teaching, and letting go of the small stuff.",
