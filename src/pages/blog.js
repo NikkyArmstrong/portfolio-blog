@@ -32,10 +32,12 @@ export const pageQuery = graphql`
   }
 `
 
-export default function Blog({data}) {
+export default function Blog({data, location}) {
   return (
     <Layout>
-      <Metadata title="Blog" description="This is my blog page" />
+      <Metadata title="Blog"
+                description="Nikky Armstrong | Blog Archive"
+                pathname={location.pathname} />
       <ul className={blogStyles.posts}>
         {data.allMarkdownRemark.edges.map(edge => {
           return (

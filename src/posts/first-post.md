@@ -1,5 +1,6 @@
 ---
 title: "First Gatsby Blog Post"
+excerpt: "This is the tagline for my first blog post"
 date: "2020-01-18"
 featured: "../images/Growlithe.jpg"
 featuredalt: "Growlithe the dog looking happy"

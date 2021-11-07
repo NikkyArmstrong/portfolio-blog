@@ -12,6 +12,7 @@ export const query = graphql`
         title
         date(formatString: "DD MMMM, YYYY")
         featuredalt
+        excerpt
         featured {
           publicURL
           childImageSharp {
@@ -25,33 +26,34 @@ export const query = graphql`
   }
 `
 
-const BlogPost = props => {
-  const image = getImage(props.data.markdownRemark.frontmatter.featured)
-  const imagePublicUrl = props.data.markdownRemark.frontmatter.featured.publicURL
+export default function BlogPost({ data, location }) {
+  const image = getImage(data.markdownRemark.frontmatter.featured)
+  const imagePublicUrl = data.markdownRemark.frontmatter.featured.publicURL
 
   return (
     <Layout>
-      <Metadata title={props.data.markdownRemark.frontmatter.title} image={imagePublicUrl} />
+      <Metadata title={data.markdownRemark.frontmatter.title}
+                description={data.markdownRemark.frontmatter.excerpt}
+                image={imagePublicUrl}
+                pathname={location.pathname} />
       <div className={postStyles.content}>
-        <h1>{props.data.markdownRemark.frontmatter.title}</h1>
+        <h1>{data.markdownRemark.frontmatter.title}</h1>
         <span className={postStyles.meta}>
-          Posted on {props.data.markdownRemark.frontmatter.date}{" "}
-          <span> / </span> {props.data.markdownRemark.timeToRead} min read
+          Posted on {data.markdownRemark.frontmatter.date}{" "}
+          <span> / </span> {data.markdownRemark.timeToRead} min read
         </span>
         {
-          props.data.markdownRemark.frontmatter.featured && (
+          data.markdownRemark.frontmatter.featured && (
             <GatsbyImage className={postStyles.featured}
               image={image}
-              alt={props.data.markdownRemark.frontmatter.featuredalt}
+              alt={data.markdownRemark.frontmatter.featuredalt}
             />
           )
         }
         <div
-          dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
+          dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
         ></div>
       </div>
     </Layout>
   )
 }
-
-export default BlogPost

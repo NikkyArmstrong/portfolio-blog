@@ -2,7 +2,7 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-const Metadata = ({ title, description, keywords, image }) => {
+const Metadata = ({ title, description, keywords, image, pathname }) => {
   const data = useStaticQuery(
     graphql`
       query {
@@ -25,6 +25,8 @@ const Metadata = ({ title, description, keywords, image }) => {
   const metaKeywords = keywords || data.site.siteMetadata.keywords
   const metaImage = image ? `${data.site.siteMetadata.siteUrl}${image}` : null
   const metaTwitterSummary = metaImage ? "summary_large_image" : "summary"
+  const canonicalUrl = `${data.site.siteMetadata.siteUrl}${pathname}`
+
   return (
     <Helmet>
       <title>{`${metaTitle} | ${data.site.siteMetadata.title}`}</title>
@@ -35,10 +37,12 @@ const Metadata = ({ title, description, keywords, image }) => {
       <meta property="og:title" content={metaTitle} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={metaDescription} />
+      <meta property="og:url" content={canonicalUrl} />
       <meta name="twitter:creator" content={data.site.siteMetadata.twitterHandle} />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:card" content={metaTwitterSummary} />
+      <link rel="canonical" href={canonicalUrl} />
     </Helmet>
   )
 }
