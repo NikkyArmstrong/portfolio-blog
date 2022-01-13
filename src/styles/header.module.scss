@@ -111,7 +111,7 @@
     }
 
     a {
-      font-size: 1.2vw;
+      font-size: 1vw;
     }
   }
 }
@@ -142,17 +142,36 @@
 
   .nav-container {
     width: 100%;
-    background: rgba($secondaryColor, 0.6);
     border-top: 2px solid $secondaryColor;
+    border-bottom: 2px solid $secondaryColor;
   }
 
   .nav-list {
     margin: 0;
-    flex-flow: wrap;
     justify-content: center;
+    align-items: center;
 
     li {
       padding: 7px 14px 10px;
+
+    }
+
+    a {
+      font-size: 12px;
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .nav-list {
+    margin: 0;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      padding: 7px 14px 10px;
+      
     }
 
     a {

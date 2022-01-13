@@ -16,6 +16,12 @@ const Metadata = ({ title, description, keywords, image, pathname }) => {
             twitterHandle
           }
         }
+        defaultImage: file(base: { eq: "headshot_with_growlithe.jpg" }) {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
       }
     `
   )
@@ -23,7 +29,7 @@ const Metadata = ({ title, description, keywords, image, pathname }) => {
   const metaDescription = description || data.site.siteMetadata.description
   const metaAuthor = data.site.siteMetadata.author
   const metaKeywords = keywords || data.site.siteMetadata.keywords
-  const metaImage = image ? `${data.site.siteMetadata.siteUrl}${image}` : null
+  const metaImage = image ? `${data.site.siteMetadata.siteUrl}${image}` : data.defaultImage
   const metaTwitterSummary = metaImage ? "summary_large_image" : "summary"
   const canonicalUrl = `${data.site.siteMetadata.siteUrl}${pathname}`
 

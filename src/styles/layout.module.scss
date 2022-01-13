@@ -17,17 +17,21 @@
   text-align: justify;
 
   a {
-    font-weight: bold;
-    color: $secondaryColor;
+    text-decoration: underline;
+    text-decoration-color: $secondaryColor;
+    text-decoration-thickness: 2px;
+    color: $primaryColor;
 
     &:hover {
-      color: lighten($secondaryColor, 10%);
-    }
-
-    &:visited {
-      color: lighten($primaryColor, 10%);
+      color: darken($secondaryColor, 20%);
     }
   }
+}
+
+.headshot {
+  float: left;
+  max-width: 40%;
+  margin-right: 20px;
 }
 
 @media only screen and (min-width: 951px) {
