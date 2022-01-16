@@ -1,6 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
 
 const Metadata = ({ title, description, keywords, image, pathname }) => {
   const data = useStaticQuery(
@@ -25,11 +26,14 @@ const Metadata = ({ title, description, keywords, image, pathname }) => {
       }
     `
   )
+
+  const defaultImage = getImage(data.defaultImage)
+
   const metaTitle = title || data.site.siteMetadata.title
   const metaDescription = description || data.site.siteMetadata.description
   const metaAuthor = data.site.siteMetadata.author
   const metaKeywords = keywords || data.site.siteMetadata.keywords
-  const metaImage = image ? `${data.site.siteMetadata.siteUrl}${image}` : data.defaultImage
+  const metaImage = image ? `${data.site.siteMetadata.siteUrl}${image}` : defaultImage
   const metaTwitterSummary = metaImage ? "summary_large_image" : "summary"
   const canonicalUrl = `${data.site.siteMetadata.siteUrl}${pathname}`
 
