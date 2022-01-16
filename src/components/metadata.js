@@ -1,7 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
 
 const Metadata = ({ title, description, keywords, image, pathname }) => {
   const data = useStaticQuery(
@@ -27,13 +26,12 @@ const Metadata = ({ title, description, keywords, image, pathname }) => {
     `
   )
 
-  const defaultImage = getImage(data.defaultImage)
-
   const metaTitle = title || data.site.siteMetadata.title
   const metaDescription = description || data.site.siteMetadata.description
   const metaAuthor = data.site.siteMetadata.author
   const metaKeywords = keywords || data.site.siteMetadata.keywords
-  const metaImage = image ? `${data.site.siteMetadata.siteUrl}${image}` : defaultImage
+  const metaImage = image ? image : data.defaultImage.publicURL
+  const metaImageURL = `${data.site.siteMetadata.siteUrl}${metaImage}`
   const metaTwitterSummary = metaImage ? "summary_large_image" : "summary"
   const canonicalUrl = `${data.site.siteMetadata.siteUrl}${pathname}`
 
@@ -43,7 +41,7 @@ const Metadata = ({ title, description, keywords, image, pathname }) => {
       <meta name="description" content={metaDescription} />
       <meta name="author" content={metaAuthor} />
       <meta name="keywords" content={metaKeywords} />
-      { metaImage && <meta property="og:image" content={metaImage} /> }
+      <meta property="og:image" content={metaImageURL} />
       <meta property="og:title" content={metaTitle} />
       <meta property="og:type" content="website" />
       <meta property="og:description" content={metaDescription} />
