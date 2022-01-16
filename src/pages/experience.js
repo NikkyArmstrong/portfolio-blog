@@ -8,7 +8,7 @@ export default function About({location}) {
       <Metadata title="Experience"
                 description="Nikky Armstrong | Work History and Experience"
                 pathname={location.pathname} />
-      <h1>Nikky Armstrong</h1>      
+      <h1>Nikky Armstrong</h1>
     </Layout>
   )
 }
