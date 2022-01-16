@@ -27,3 +27,15 @@
   padding: 1rem;
   opacity: 0.8;
 }
+
+@media only screen and (max-width: 360px) {
+  .site-footer {
+    flex-flow: column;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .container {
+    padding: 0;
+  }
+}

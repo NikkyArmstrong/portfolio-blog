@@ -14,10 +14,6 @@
             {
                 "label": "Home",
                 "url": "/"
-            },
-            {
-                "label": "Experience",
-                "url": "/experience"
             }
         ],
         "social_links": [

@@ -1,6 +1,6 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"  
 
 const Metadata = ({ title, description, keywords, image, pathname }) => {
   const data = useStaticQuery(
