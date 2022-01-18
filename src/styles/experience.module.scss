@@ -1,0 +1,21 @@
+.experienceBlock {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 20px;
+
+    .title {
+        font-weight: bold;
+    }
+
+    .company {
+        font-size: 85%;
+    }
+
+    .year {
+        font-size: 85%;
+    }
+
+    .extraInfo {
+        margin-top: 5px;
+    }
+}
