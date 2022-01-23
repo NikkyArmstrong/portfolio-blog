@@ -30,7 +30,7 @@ export default function Contact({location}) {
     e.preventDefault()
     const form = e.target
     const recaptchaValue = recaptchaRef.current.getValue()
-    fetch('/', {
+    fetch('/contact?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
