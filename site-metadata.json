@@ -18,21 +18,25 @@
             {
                 "label": "Experience",
                 "url": "/experience"
+            },
+            {
+                "label": "Speaker",
+                "url": "/speaker"
             }
         ],
         "social_links": [
             {
-                "label": "Twitter",
+                "label": "Link to Nikky's Twitter",
                 "url": "https://twitter.com/nikkyarmstrong",
                 "icon_class": "twitter-square"
             },
             {
-                "label": "LinkedIn",
+                "label": "Link to Nikky's LinkedIn",
                 "url": "https://www.linkedin.com/in/nikky-armstrong/",
                 "icon_class": "linkedin"
             },
             {
-                "label": "GitHub",
+                "label": "Link to Nikky's GitHub",
                 "url": "https://github.com/NikkyArmstrong",
                 "icon_class": "github-square"
             }

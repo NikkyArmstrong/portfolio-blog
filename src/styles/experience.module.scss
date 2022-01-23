@@ -1,7 +1,6 @@
 .experienceBlock {
     display: flex;
     flex-flow: column;
-    margin-bottom: 20px;
 
     .title {
         font-weight: bold;
@@ -17,5 +16,39 @@
 
     .extraInfo {
         margin-top: 5px;
+        font-size: 85%;
+    }
+
+    .infoWithPicture {
+        display:flex;
+        align-items: center;
+        margin-top: 15px;
+        font-size: 85%;
+    }
+}
+
+.dividerDiv {
+    text-align: center;
+
+    .divider {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (min-width: 801px) {
+    .infoDesc {
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .infoWithPicture {
+        flex-flow: column;
+
+        .infoDesc {
+            margin-top: 10px;
+            margin-left: 0px;
+        }
     }
 }

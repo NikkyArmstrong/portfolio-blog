@@ -3,6 +3,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import * as socialStyles from "../styles/socials.module.scss"
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faDev, faTwitterSquare, faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
+library.add(faDev, faTwitterSquare, faLinkedin, faGithubSquare)
+
 const Socials = () => {
   const data = useStaticQuery(
     graphql`
