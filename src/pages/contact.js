@@ -21,12 +21,10 @@ export default function Contact({location}) {
           <p>My contact form won't work with JavaScript disabled.</p>
         </noscript>
         <input type="hidden" name="form-name" value="contact-form" />
+        <input type="hidden" className={contactStyles.shortField} name="bot-field" />
         <p className={contactStyles.inputBlock}>
           <label htmlFor="nameField">Name</label>
           <input className={contactStyles.shortField} id="nameField" type="text" name="name" required />
-        </p>
-        <p className={contactStyles.inputBlock}>
-          <input type="hidden" className={contactStyles.shortField} name="bot-field" />
         </p>
         <p className={contactStyles.inputBlock}>
           <label htmlFor="email">Email</label>
