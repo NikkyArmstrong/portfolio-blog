@@ -1,47 +1,9 @@
 import React from 'react'
-import { navigate } from 'gatsby'
-import { ReCAPTCHA } from 'react-google-recaptcha'
 import Metadata from '../components/metadata'
 import Layout from '../components/layout'
 import * as contactStyles from '../styles/contact.module.scss'
 
-const RECAPTCHA_KEY = process.env.GATSBY_APP_SITE_RECAPTCHA_KEY
-if (typeof RECAPTCHA_KEY === 'undefined') {
-  throw new Error(`
-  Env var GATSBY_APP_SITE_RECAPTCHA_KEY is undefined!
-  `)
-}
-
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
-
 export default function Contact({location}) {
-  const [state, setState] = React.useState({})
-  const recaptchaRef = React.createRef()
-
-  const handleChange = (e) => {
-    setState({ ...state, [e.target.name]: e.target.value })
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const form = e.target
-    const recaptchaValue = recaptchaRef.current.getValue()
-    fetch('/contact?no-cache=1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        'g-recaptcha-response': recaptchaValue,
-        ...state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute('action')))
-      .catch((error) => alert(error))
-  }
 
   return (
     <Layout>
@@ -54,24 +16,28 @@ export default function Contact({location}) {
         method="post"
         action="/thanks/"
         data-netlify="true"
-        data-netlify-recaptcha="true"
-        onSubmit={handleSubmit}>
+        data-netlify-honeypot="bot-field"
+        data-netlify-recaptcha="true">
         <noscript>
           <p>My contact form won't work with JavaScript disabled.</p>
         </noscript>
+        <input type="hidden" name="contact-form" value="contact" />
         <p className={contactStyles.inputBlock}>
           <label htmlFor="nameField">Name</label>
-          <input className={contactStyles.shortField} id="nameField" type="text" name="name" onChange={handleChange} required />
+          <input className={contactStyles.shortField} id="nameField" type="text" name="name" required />
+        </p>
+        <p className={contactStyles.inputBlock}>
+          <input type="hidden" className={contactStyles.shortField} name="bot-field" />
         </p>
         <p className={contactStyles.inputBlock}>
           <label htmlFor="email">Email</label>
-          <input className={contactStyles.shortField} id="email" type="email" name="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" onChange={handleChange} required />
+          <input className={contactStyles.shortField} id="email" type="email" name="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required />
         </p>
         <p className={contactStyles.inputBlock}>
           <label htmlFor="message">Message</label>
-          <textarea className={contactStyles.textField} id="message" name="message" onChange={handleChange} required />
+          <textarea className={contactStyles.textField} id="message" name="message" required />
         </p>
-        <ReCAPTCHA ref={recaptchaRef} sitekey={RECAPTCHA_KEY} />
+        <div data-netlify-recaptcha="true"></div>
         <p>
           <button className={contactStyles.button} type="submit">Send</button>
         </p>
