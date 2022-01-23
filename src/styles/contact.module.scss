@@ -1,0 +1,35 @@
+@import 'variables';
+
+.input-block {
+  display: flex;
+  flex-flow: column;
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  .short-field {
+    max-width: 350px;
+  }
+
+  .text-field {
+    height: 200px;
+    max-width: 500px;
+  }
+}
+
+.button {
+  font-size: 14px;
+  font-weight: 300;
+  color: $primaryColor;
+  background-color: white;
+  padding: 8px 12px;
+  border: 1px solid $primaryColor;
+  text-decoration: none;
+  font-family: "Segoe UI", Roboto, Verdana, "Helvetica Neue", sans-serif;
+  &:hover {
+    color: white;
+    border-color: $primaryColor;
+    background-color: $primaryColor;
+  }
+}

@@ -5,6 +5,7 @@ import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStream } from '@fortawesome/free-solid-svg-icons'
 import * as experienceStyles from "../styles/experience.module.scss"
+import { Link } from "gatsby"
 
 export default function Speaker({location}) {
   return (
@@ -13,7 +14,7 @@ export default function Speaker({location}) {
                 description="Nikky Armstrong | Speaker"
                 pathname={location.pathname} />
       <h1>Nikky Armstrong</h1>
-      <p>As a woman in the tech/games space, I am always looking for opportunities to encourage and empower underrepresented genders into jobs in these fields. As well as my involvement with mentoring programs, which can be found on my <a href="/experience">Experience</a> page, below you can find details of some events I have been involved with.</p>
+      <p>As a woman in the tech/games space, I am always looking for opportunities to encourage and empower underrepresented genders into jobs in these fields. As well as my involvement with mentoring programs, which can be found on my <Link href="/experience">Experience</Link> page, below you can find details of some events I have been involved with.</p>
 
       <h2>Talks</h2>
 

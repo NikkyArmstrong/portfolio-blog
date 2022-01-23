@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
 import * as blogStyles from "../styles/blog.module.scss"
+import * as styles from "../styles/layout.module.scss"
 
 export const pageQuery = graphql`
   query {
@@ -62,7 +63,7 @@ export default function Blog({data, location}) {
                 )
               }
               <p className={blogStyles.excerpt}>{edge.node.excerpt}</p>
-              <div className={blogStyles.button}>
+              <div className={styles.button}>
                 <Link to={`/blog/${edge.node.fields.slug}/`}>Read More</Link>
               </div>
             </li>

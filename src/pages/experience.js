@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStream } from '@fortawesome/free-solid-svg-icons'
 import * as experienceStyles from "../styles/experience.module.scss"
 
-export default function About({location}) {
+export default function Experience({location}) {
   return (
     <Layout>
       <Metadata title="Experience"

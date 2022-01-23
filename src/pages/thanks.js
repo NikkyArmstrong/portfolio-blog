@@ -4,12 +4,12 @@ import Layout from "../components/layout"
 import Metadata from "../components/metadata"
 import * as styles from "../styles/layout.module.scss"
 
-export default function NotFound({location}) {
+export default function Thanks({location}) {
   return (
     <Layout>
-      <Metadata title="404" description="404" pathname="/404" />
-      <h1>404</h1>
-      <p>The page you've tried to visit either doesn't exist, or hasn't been created yet.</p>
+      <Metadata title="Thanks" description="Nikky Armstrong | Contact Thanks" pathname={location.pathname} />
+      <h1>Nikky Armstrong</h1>
+      <p>Thanks for your query! I'll get back to you as soon as I can.</p>
       <div className={styles.button}>
         <Link to="/">Home</Link>
       </div>

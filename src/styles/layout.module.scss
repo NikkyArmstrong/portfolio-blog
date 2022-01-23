@@ -34,6 +34,23 @@
   margin-right: 20px;
 }
 
+.button {
+  font-size: 14px;
+  font-weight: 300;
+  padding: 20px 0;
+  a {
+    color: $primaryColor;
+    padding: 8px 12px;
+    border: 1px solid $primaryColor;
+    text-decoration: none;
+    &:hover {
+      color: white;
+      border-color: $primaryColor;
+      background-color: $primaryColor;
+    }
+  }
+}
+
 @media only screen and (min-width: 951px) {
   .aligner {
     margin-left: 25vw;
