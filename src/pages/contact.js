@@ -14,14 +14,14 @@ export default function Contact({location}) {
       <form
         name="contact-form"
         method="post"
-        action="/thanks/"
+        action="/thanks"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         data-netlify-recaptcha="true">
         <noscript>
           <p>My contact form won't work with JavaScript disabled.</p>
         </noscript>
-        <input type="hidden" name="contact-form" value="contact" />
+        <input type="hidden" name="form-name" value="contact-form" />
         <p className={contactStyles.inputBlock}>
           <label htmlFor="nameField">Name</label>
           <input className={contactStyles.shortField} id="nameField" type="text" name="name" required />
