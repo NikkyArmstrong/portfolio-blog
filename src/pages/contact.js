@@ -16,8 +16,7 @@ export default function Contact({location}) {
         method="post"
         action="/thanks"
         data-netlify="true"
-        data-netlify-honeypot="bot-field"
-        data-netlify-recaptcha="true">
+        data-netlify-honeypot="bot-field">
         <noscript>
           <p>My contact form won't work with JavaScript disabled.</p>
         </noscript>
@@ -37,7 +36,6 @@ export default function Contact({location}) {
           <label htmlFor="message">Message</label>
           <textarea className={contactStyles.textField} id="message" name="message" required />
         </p>
-        <div data-netlify-recaptcha="true"></div>
         <p>
           <button className={contactStyles.button} type="submit">Send</button>
         </p>
