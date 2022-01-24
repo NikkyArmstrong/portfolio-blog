@@ -12,7 +12,7 @@ export default function Experience({location}) {
       <Metadata title="Experience"
                 description="Nikky Armstrong | Work History and Experience"
                 pathname={location.pathname} />
-      <h1>Nikky Armstrong</h1>
+      <h1> </h1>
       <p>I joined the games industry in March 2020 with a promotion from my role in Australia as Intermediate level Software Engineer to Senior Gameplay Programmer at Ubisoft Reflections. I quickly showed that as a programmer, the difference between the tech and games industries is easily bridgeable, making myself an invaluable member of the team. By July 2021, I had been offered the position of Lead Programmer at Silver Rain Games, where I am able to not only use my strong technical skills, but also my love of mentoring, and my love of planning spreadsheets.</p>
 
       <p>The following lists selected parts of my career that I think are worth highlighting. For the full details of everything I've done since graduating, visit my <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/" target="_blank" rel="noreferrer">LinkedIn</OutboundLink>.</p>

@@ -7,14 +7,17 @@ import { faStream } from '@fortawesome/free-solid-svg-icons'
 import * as experienceStyles from "../styles/experience.module.scss"
 import { Link } from "gatsby"
 
-export default function Speaker({location}) {
+export default function Speaking({location}) {
   return (
     <Layout>
-      <Metadata title="Speaker"
-                description="Nikky Armstrong | Speaker"
+      <Metadata title="Speaking"
+                description="Nikky Armstrong | Speaking"
                 pathname={location.pathname} />
-      <h1>Nikky Armstrong</h1>
-      <p>As a woman in the tech/games space, I am always looking for opportunities to encourage and empower underrepresented genders into jobs in these fields. As well as my involvement with mentoring programs, which can be found on my <Link href="/experience">Experience</Link> page, below you can find details of some events I have been involved with.</p>
+      <h1> </h1>
+      <p>I am always looking for opportunities to encourage and empower people from traditionally underrepresented groups into jobs in tech and games. As well as my involvement with mentoring programs, which can be found on my <Link href="/experience">Experience</Link> page, this page lists details of events I have been invited to be a part of.</p>
+      <p>I have been fortunate to be involved in a few live, online panels, which I have enjoyed for the opportunity it gives both to meet other people in my field and to connect with people attending the event.</p>
+      <p>I enjoy public speaking, and my first talk in the UK games industry at Develop:Brighton 2021 received fantastic feedback. I have been invited to give this talk again at an internal event for a UK based studio, and am hoping to submit talks to further conferences in 2022.</p>
+      <p>If you would like to talk to me about your event, feel free to get in touch via <OutboundLink href="https://twitter.com/nikkyarmstrong" target="_blank" rel="noreferrer">Twitter</OutboundLink>, <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/" target="_blank" rel="noreferrer">LinkedIn</OutboundLink>, or my <Link to="/contact">Contact page</Link>.</p>
 
       <h2>Talks</h2>
 
