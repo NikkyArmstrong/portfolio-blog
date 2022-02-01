@@ -15,14 +15,13 @@ export default function Speaking({location}) {
                 pathname={location.pathname} />
       <h1> </h1>
       <p>I am always looking for opportunities to encourage and empower people from traditionally underrepresented groups into jobs in tech and games. As well as my involvement with mentoring programs, which can be found on my <Link href="/experience">Experience</Link> page, this page lists details of events I have been invited to be a part of.</p>
-      <p>I have been fortunate to be involved in a few live, online panels, which I have enjoyed for the opportunity it gives both to meet other people in my field and to connect with people attending the event.</p>
       <p>I enjoy public speaking, and my first talk in the UK games industry at Develop:Brighton 2021 received fantastic feedback. I have been invited to give this talk again at an internal event for a UK based studio, and am hoping to submit talks to further conferences in 2022.</p>
       <p>If you would like to talk to me about your event, feel free to get in touch via <OutboundLink href="https://twitter.com/nikkyarmstrong" target="_blank" rel="noreferrer">Twitter</OutboundLink>, <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/" target="_blank" rel="noreferrer">LinkedIn</OutboundLink>, or my <Link to="/contact">Contact page</Link>.</p>
 
       <h2>Talks</h2>
 
       <section className={experienceStyles.experienceBlock}>
-        <span className={experienceStyles.title}>
+        {/* <span className={experienceStyles.title}>
           Test Driven Development: A Mindset to Develop Games from the Start, Middle, or End
         </span>
         <span className={experienceStyles.company}>
@@ -30,6 +29,14 @@ export default function Speaking({location}) {
             Develop:Brighton 2021
           </OutboundLink> | <OutboundLink href="https://www.developconference.com/whats-on/speakers/speaker-detail/nikky-armstrong" target="_blank" rel="noreferrer">
              My Speaker Page
+          </OutboundLink>
+        </span> */}
+        <span className={experienceStyles.title}>
+          Develop:Brighton 2021
+        </span>
+        <span className={experienceStyles.company}>
+          <OutboundLink href="https://www.developconference.com/whats-on/speakers/speaker-detail/nikky-armstrong" target="_blank" rel="noreferrer">
+          Test Driven Development: A Mindset to Develop Games from the Start, Middle, or End
           </OutboundLink>
         </span>
         {/* <span className={experienceStyles.infoWithPicture}>
@@ -80,8 +87,20 @@ export default function Speaking({location}) {
         <span className={experienceStyles.extraInfo}>Links to a couple of careers talks I have given recently. I'm always excited to speak to people considering a career in the games industry about potential pathways into programming.</span>
       </section>
 
-      {/* <h2>Upcoming</h2>
-      <p>Cheltenham Science Festival</p> */}
+      <h2>Upcoming</h2>
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>Women in Tech Global Conference 2022</span>
+        <span className={experienceStyles.company}>
+          <OutboundLink href="https://www.womentech.net/speaker/Nikky/Armstrong/68943" target="_blank" rel="noreferrer">
+            Software as a Service: Cultivating a respectful programming team in a multi-discipline games studio
+          </OutboundLink>
+        </span>
+        <span className={experienceStyles.extraInfo}>
+          When part of a code team in a games studio, you operate in service of the other disciplines creating the game. The code team's customers are not just the end users, the players, but also the other teams in the studio. From putting requested features into the game, to completing tasks which unblock other disciplines' work, to creating tools which improve the pipelines of the rest of the studio, our work is varied and needs careful communication. Part of creating a respectful environment includes understanding how to plan and schedule all the interlocking tasks in order to balance your own team goals with the dreams and vision of the Design team and with pre-requisite work required by other disciplines such as Artists and Animators. This talk will outline some strategies I've employed as Lead of the code team at Silver Rain Games to help us serve the studio.
+        </span>
+      </section>
+
+      { /* <p>Cheltenham Science Festival</p> */}
 
 
     </Layout>
