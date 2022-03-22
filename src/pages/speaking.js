@@ -1,11 +1,11 @@
 import React from "react"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
+import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStream } from '@fortawesome/free-solid-svg-icons'
 import * as experienceStyles from "../styles/experience.module.scss"
-import { Link } from "gatsby"
 
 export default function Speaking({location}) {
   return (
@@ -21,16 +21,6 @@ export default function Speaking({location}) {
       <h2>Talks</h2>
 
       <section className={experienceStyles.experienceBlock}>
-        {/* <span className={experienceStyles.title}>
-          Test Driven Development: A Mindset to Develop Games from the Start, Middle, or End
-        </span>
-        <span className={experienceStyles.company}>
-          <OutboundLink href="https://www.developconference.com/" target="_blank" rel="noreferrer">
-            Develop:Brighton 2021
-          </OutboundLink> | <OutboundLink href="https://www.developconference.com/whats-on/speakers/speaker-detail/nikky-armstrong" target="_blank" rel="noreferrer">
-             My Speaker Page
-          </OutboundLink>
-        </span> */}
         <span className={experienceStyles.title}>
           Develop:Brighton 2021
         </span>
@@ -39,14 +29,26 @@ export default function Speaking({location}) {
           Test Driven Development: A Mindset to Develop Games from the Start, Middle, or End
           </OutboundLink>
         </span>
-        {/* <span className={experienceStyles.infoWithPicture}>
-          <OutboundLink href="https://www.developconference.com/whats-on/speakers/speaker-detail/nikky-armstrong">
-            <GatsbyImage alt="Nikky with her dog, Growlithe" placeholder="blurred" image={image} />
-          </OutboundLink>
-          <span className={experienceStyles.infoDesc}></span>
-        </span> */}
         <span className={experienceStyles.extraInfo}>
           In October 2021, my Test Driven Development talk was accepted for the Develop:Brighton Conference. This talk has roots in my Honours' Thesis, and combines that with the 10+ years of industry experience I have enjoyed since then. Where TDD is most often focussed on discrete unit tests written at the beginning of a new project, my talk recognises that it is hard to reconcile that knowledge with your legacy, completely untested codebase, and with the many variables and interconnected systems that make up game development. I give an overview of TDD from the point of view of utilising it as a mindset, rather than a set of prescriptive rules. The talk uses real world examples to explain the value that TDD brings specifically into the games development environment, showing how this mindset will impact and improve your implementations, stability, and communication between disciplines.
+        </span>
+      </section>
+
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>
+          Sega Dev Day, March 2022
+        </span>
+        <span className={experienceStyles.company}>
+          <OutboundLink href="https://twitter.com/CAGames/status/1499408212650512389?s=20&t=X8Wi0ZUjZjTkWEF5kI5u9g" target="_blank" rel="noreferrer">
+          TDD as a Mindset: Make Test-First Development a Reality
+          </OutboundLink>
+        </span>
+        <span className={experienceStyles.extraInfo}>
+          In March 2022, I was invited to give an expanded version of the talk I gave at Develop for Creative Assembly and other Sega Studios as part of their Sega Dev Day sessions.
         </span>
       </section>
 
