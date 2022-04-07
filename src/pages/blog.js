@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
+import TagCloud from "../components/tag-cloud"
 import * as blogStyles from "../styles/blog.module.scss"
 import * as styles from "../styles/layout.module.scss"
 
@@ -20,6 +21,7 @@ export const pageQuery = graphql`
                 gatsbyImageData
               }
             }
+            tags
           }
           timeToRead
           excerpt
@@ -33,14 +35,19 @@ export const pageQuery = graphql`
   }
 `
 
+// TODO: Tag Cloud? Tags search result page when tags are clicked
+
 export default function Blog({data, location}) {
   return (
     <Layout>
       <Metadata title="Blog"
                 description="Nikky Armstrong | Blog Archive"
                 pathname={location.pathname} />
+      <TagCloud />
       <ul className={blogStyles.posts}>
         {data.allMarkdownRemark.edges.map(edge => {
+          let tagArray = edge.node.frontmatter.tags?.split(',')
+
           return (
             <li className={blogStyles.post} key={edge.node.id}>
               <h2>
@@ -66,6 +73,13 @@ export default function Blog({data, location}) {
               <div className={styles.button}>
                 <Link to={`/blog/${edge.node.fields.slug}/`}>Read More</Link>
               </div>
+              {
+                tagArray?.map(tag => {
+                  return (
+                    <Link to={`/tags/${tag}/`} className={blogStyles.tags}>{tag}</Link>
+                  )
+                })
+              }
             </li>
           )
         })}
@@ -73,4 +87,3 @@ export default function Blog({data, location}) {
     </Layout>
   )
 }
-

@@ -1,46 +1,54 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "./src/components/layout"
-import Metadata from "./src/components/metadata"
+import Layout from "../components/layout"
+import Metadata from "../components/metadata"
 import * as blogStyles from "../styles/blog.module.scss"
+import * as styles from "../styles/layout.module.scss"
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date(fromNow: true, formatString: "DD MMMM, YYYY")
-            featuredalt
-            featured {
-              childImageSharp {
-                gatsbyImageData
-              }
+export const query = graphql`
+query {
+  allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+    edges {
+      node {
+        frontmatter {
+          title
+          date(fromNow: true, formatString: "DD MMMM, YYYY")
+          featuredalt
+          featured {
+            childImageSharp {
+              gatsbyImageData
             }
           }
-          timeToRead
-          excerpt
-          id
-          fields {
-            slug
-          }
+          tags
+        }
+        timeToRead
+        excerpt
+        id
+        fields {
+          slug
         }
       }
     }
   }
+}
 `
 
-export default function Blog({data, location}) {
+export default function TagSearch({ data, location, pageContext }) {
+
   return (
     <Layout>
-      <Metadata title="Blog"
-                description="Nikky Armstrong | Blog Archive"
-                pathname={location.pathname}
-                ogType="blog" />
+      <Metadata title="Tags"
+                description="Nikky Armstrong | Tags"
+                pathname={location.pathname} />
+      <p>Posts matching: {pageContext.tag}</p>
       <ul className={blogStyles.posts}>
         {data.allMarkdownRemark.edges.map(edge => {
+          let tagArray = edge.node.frontmatter.tags?.split(',')
+          if (!tagArray || !tagArray.includes(pageContext.tag)) {
+            return;
+          }
+
           return (
             <li className={blogStyles.post} key={edge.node.id}>
               <h2>
@@ -63,14 +71,20 @@ export default function Blog({data, location}) {
                 )
               }
               <p className={blogStyles.excerpt}>{edge.node.excerpt}</p>
-              <div className={blogStyles.button}>
+              <div className={styles.button}>
                 <Link to={`/blog/${edge.node.fields.slug}/`}>Read More</Link>
               </div>
+              {
+                tagArray?.map(tag => {
+                  return (
+                    <Link to={`/tags/${tag}/`} className={blogStyles.tags}>{tag}</Link>
+                  )
+                })
+              }
             </li>
           )
         })}
       </ul>
-    </Layout>
+     </Layout>
   )
 }
-
