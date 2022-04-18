@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { getUniqueTags } from "../../utils"
 import * as blogStyles from "../styles/blog.module.scss"
+import * as styles from "../styles/layout.module.scss"
 
 const TagCloud = () => {
   const data = useStaticQuery(
@@ -22,15 +23,15 @@ const TagCloud = () => {
   const tags = getUniqueTags(data.allMarkdownRemark.edges);
 
   return (
-    <div>
+    <div className={blogStyles.sidePanel}>
       <h2>Tags</h2>
-      <ul>
-        {tags.size > 0 && [...tags].map(tag => {
-          return (
-            <Link className={blogStyles.tagLink} to={`/tags/${tag}/`}>{tag}</Link>
-          )
-        })}
-      </ul>
+      {tags.size > 0 && [...tags].map(tag => {
+        return (
+          <div className={styles.button}>
+            <Link to={`/tags/${tag}/`}>{tag}</Link>
+          </div>
+        )
+      })}
     </div>
   )
 }

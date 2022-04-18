@@ -35,19 +35,14 @@ export const pageQuery = graphql`
   }
 `
 
-// TODO: Tag Cloud? Tags search result page when tags are clicked
-
 export default function Blog({data, location}) {
   return (
     <Layout>
       <Metadata title="Blog"
                 description="Nikky Armstrong | Blog Archive"
                 pathname={location.pathname} />
-      <TagCloud />
       <ul className={blogStyles.posts}>
         {data.allMarkdownRemark.edges.map(edge => {
-          let tagArray = edge.node.frontmatter.tags?.split(',')
-
           return (
             <li className={blogStyles.post} key={edge.node.id}>
               <h2>
@@ -60,6 +55,7 @@ export default function Blog({data, location}) {
                   Posted on {edge.node.frontmatter.date} <span> / </span>{" "}
                   {edge.node.timeToRead} min read
                 </span>
+
               </div>
               {
                 edge.node.frontmatter.featured && (
@@ -73,17 +69,21 @@ export default function Blog({data, location}) {
               <div className={styles.button}>
                 <Link to={`/blog/${edge.node.fields.slug}/`}>Read More</Link>
               </div>
-              {
+              {/* {
                 tagArray?.map(tag => {
                   return (
                     <Link to={`/tags/${tag}/`} className={blogStyles.tags}>{tag}</Link>
                   )
                 })
-              }
+              } */}
             </li>
           )
         })}
       </ul>
+      {/* <div className={blogStyles.meta}>
+        <Link to="/archive">Archive</Link> <span> / </span>{" "}
+        <input type="text" placeholder="search"></input>
+      </div> */}
     </Layout>
   )
 }

@@ -1,5 +1,10 @@
 @import 'variables';
 
+.outer-container {
+  display: flex;
+  flex-direction: row;
+}
+
 .posts {
   list-style-type: none;
   margin: 0;
@@ -45,10 +50,15 @@
 .tags {
   font-size: 12px;
   margin-right: 5px;
+  padding: 2px 5px;
+  background: #d6d6d6;
+  border-radius: 5px;
+  text-decoration: none !important;
 }
 
-.tag-link {
-  padding: 10px;
-  border: 1px solid papayawhip;
-  border-radius: 5px;
+/** Tag Cloud */
+
+.side-panel {
+  max-width: 25%;
+  margin: 0 10px;
 }
