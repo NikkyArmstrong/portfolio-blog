@@ -36,6 +36,8 @@ export const pageQuery = graphql`
   }
 `
 
+// todo search, archive, pagination
+
 export default function Blog({data, location}) {
   return (
     <Layout>
