@@ -31,25 +31,25 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  // let tags = new Set();
-  // response.data.allMarkdownRemark.edges.forEach(edge => {
-  //   if (edge.node.frontmatter.tags) {
-  //     var postTags = edge.node.frontmatter.tags?.split(',');
-  //     postTags.forEach(tag => {
-  //       tags.add(tag);
-  //     });
-  //   }
-  // });
+  let tags = new Set();
+  response.data.allMarkdownRemark.edges.forEach(edge => {
+    if (edge.node.frontmatter.tags) {
+      var postTags = edge.node.frontmatter.tags?.split(',');
+      postTags.forEach(tag => {
+        tags.add(tag);
+      });
+    }
+  });
 
-  // tags.forEach(tag => {
-  //   createPage({
-  //     path: `/tags/${tag}`,
-  //     component: path.resolve("./src/templates/tag-search.js"),
-  //     context: {
-  //       tag: tag
-  //     }
-  //   })
-  // });
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag}`,
+      component: path.resolve("./src/templates/tag-search.js"),
+      context: {
+        tag: tag
+      }
+    })
+  });
 
   response.data.allMarkdownRemark.edges.forEach(edge => {
     createPage({

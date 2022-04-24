@@ -39,14 +39,14 @@
   font-weight: 300;
   padding: 20px 0;
   a {
-    color: $primaryColor;
+    color: #efefef;
+    background: $primaryColor;
     padding: 8px 12px;
     border: 1px solid $primaryColor;
+    border-radius: 6px;
     text-decoration: none;
     &:hover {
       color: white;
-      border-color: $primaryColor;
-      background-color: $primaryColor;
     }
   }
 }

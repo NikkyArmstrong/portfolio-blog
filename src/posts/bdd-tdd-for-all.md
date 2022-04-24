@@ -1,5 +1,5 @@
 ---
-title: "Behaviour-Driven Development : TDD for the Whole Family"
+title: "Behaviour-Driven Development"
 excerpt: "TODO: Insert summary of post"
 date: "2022-04-28"
 featured: "../images/growlithe-coder.jpg"

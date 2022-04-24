@@ -1,5 +1,5 @@
 ---
-title: "Test-Driven Development : What Is It and Why Should You Care?"
+title: "TDD : What Is It and Why Should You Care?"
 excerpt: "TODO: Insert summary of post"
 date: "2022-04-07"
 featured: "../images/growlithe-coder.jpg"
