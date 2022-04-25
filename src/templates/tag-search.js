@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons'
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
 import * as blogStyles from "../styles/blog.module.scss"
@@ -36,66 +36,88 @@ export const query = graphql`
   }
 `
 
-export default function TagSearch({ data, location, pageContext }) {
-  return (
-    <Layout>
-      <Metadata title="Tags"
-                description="Nikky Armstrong | Tags"
-                pathname={location.pathname} />
-      <div className={blogStyles.header}>
-        <div>
-          Posts matching: <span className={blogStyles.tags}>{pageContext.tag}</span>
+class TagSearch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { sortIcon: faArrowDown, tooltip: "Posts newest to oldest", data: props.data.allMarkdownRemark.edges };
+    this.pageContext = props.pageContext;
+    this.location = props.location;
+  }
+
+  flip() {
+    let newIcon = this.state.sortIcon === faArrowUp ? faArrowDown : faArrowUp;
+    let newTooltip = newIcon === faArrowUp ? "Posts oldest to newest" : "Posts newest to oldest";
+    this.setState({sortIcon: newIcon, tooltip: newTooltip});
+
+    let data = this.state.data.reverse();
+    this.setState({data: data});
+  }
+
+  render() {
+    return (
+      <Layout>
+        <Metadata title="Tags"
+                  description="Nikky Armstrong | Tags"
+                  pathname={this.location.pathname} />
+        <div className={blogStyles.header}>
+          <div>
+            Posts matching: <span className={blogStyles.tags}>{this.pageContext.tag}</span>
+          </div>
+          <FontAwesomeIcon className={blogStyles.sortArrow}
+                           aria-label='sort-direction' title={this.state.tooltip}
+                           icon={this.state.sortIcon} onClick={this.flip.bind(this)} />
         </div>
-        <FontAwesomeIcon aria-label='sort-direction' title='sort-direction' icon={faArrowUp} />
-      </div>
-      <ul className={blogStyles.posts}>
-        {data.allMarkdownRemark.edges.map(edge => {
-          let tagArray = edge.node.frontmatter.tags?.split(',')
-          if (!tagArray || !tagArray.includes(pageContext.tag)) {
-            return;
-          }
+        <ul className={blogStyles.posts}>
+          {this.state.data.map(edge => {
+            let tagArray = edge.node.frontmatter.tags?.split(',')
+            if (!tagArray || !tagArray.includes(this.pageContext.tag)) {
+              return;
+            }
 
-          return (
-            <li className={blogStyles.post} key={edge.node.id}>
-              {
-                edge.node.frontmatter.featured && (
-                  <GatsbyImage className={blogStyles.featured}
-                    image={edge.node.frontmatter.featured?.childImageSharp?.gatsbyImageData}
-                    alt={edge.node.frontmatter.featuredalt}
-                  />
-                )
-              }
-              <div className={blogStyles.contentTeaser}>
-                <h3>
-                  <Link to={`/blog/${edge.node.fields.slug}/`}>
-                    {edge.node.frontmatter.title}
-                  </Link>
-                </h3>
-                <div className={blogStyles.meta}>
-                  <span>
-                    Posted on {edge.node.frontmatter.date} <span> / </span>{" "}
-                    {edge.node.timeToRead} min read
-                  </span>
-                </div>
+            return (
+              <li className={blogStyles.post} key={edge.node.id}>
+                {
+                  edge.node.frontmatter.featured && (
+                    <GatsbyImage className={blogStyles.featured}
+                      image={edge.node.frontmatter.featured?.childImageSharp?.gatsbyImageData}
+                      alt={edge.node.frontmatter.featuredalt}
+                    />
+                  )
+                }
+                <div className={blogStyles.contentTeaser}>
+                  <h3>
+                    <Link to={`/blog/${edge.node.fields.slug}/`}>
+                      {edge.node.frontmatter.title}
+                    </Link>
+                  </h3>
+                  <div className={blogStyles.meta}>
+                    <span>
+                      Posted on {edge.node.frontmatter.date} <span> / </span>{" "}
+                      {edge.node.timeToRead} min read
+                    </span>
+                  </div>
 
-                <p className={blogStyles.excerpt}>{edge.node.excerpt}</p>
-                <div className={styles.button}>
-                  <Link to={`/blog/${edge.node.fields.slug}/`}>Read More</Link>
+                  <p className={blogStyles.excerpt}>{edge.node.excerpt}</p>
+                  <div className={styles.button}>
+                    <Link to={`/blog/${edge.node.fields.slug}/`}>Read More</Link>
+                  </div>
+                  <div>
+                    {
+                      tagArray?.map(tag => {
+                        return (
+                          <Link to={`/tags/${tag}/`} className={blogStyles.tags}>{tag}</Link>
+                        )
+                      })
+                    }
+                  </div>
                 </div>
-                <div>
-                  {
-                    tagArray?.map(tag => {
-                      return (
-                        <Link to={`/tags/${tag}/`} className={blogStyles.tags}>{tag}</Link>
-                      )
-                    })
-                  }
-                </div>
-              </div>
-            </li>
-          )
-        })}
-      </ul>
-     </Layout>
-  )
+              </li>
+            )
+          })}
+        </ul>
+      </Layout>
+    );
+  }
 }
+
+export default TagSearch;
