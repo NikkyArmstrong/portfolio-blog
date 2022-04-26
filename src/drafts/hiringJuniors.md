@@ -1,8 +1,8 @@
 ---
-title: "Second Gatsby Blog Post"
+title: "Hiring Juniors"
 excerpt: "This is the tagline for my second blog post"
 date: "2020-01-19"
-featured: "../images/growlithe-coder.jpg"
+featured: "../images/Growlithe.jpg"
 featuredalt: "Growlithe the dog sitting on a chair in front of a laptop"
 ---
 Seprehenderit accusamus, explicabo eligendi necessitatibus soluta!

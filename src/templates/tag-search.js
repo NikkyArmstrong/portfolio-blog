@@ -8,7 +8,7 @@ import Metadata from "../components/metadata"
 import * as blogStyles from "../styles/blog.module.scss"
 import * as styles from "../styles/layout.module.scss"
 
-export const pageQuery = graphql`
+export const query = graphql`
   query {
     allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
@@ -24,8 +24,8 @@ export const pageQuery = graphql`
             }
             tags
           }
-          excerpt
           timeToRead
+          excerpt
           id
           fields {
             slug
@@ -36,15 +36,12 @@ export const pageQuery = graphql`
   }
 `
 
-// todo search, archive, pagination
-
-class Blog extends React.Component {
+class TagSearch extends React.Component {
   constructor(props) {
     super(props);
-    this.location = props.location;
-    this.dataArray = props.data.allMarkdownRemark.edges;
-
     this.state = { sortIcon: faArrowDown, tooltip: "Posts newest to oldest", data: props.data.allMarkdownRemark.edges };
+    this.pageContext = props.pageContext;
+    this.location = props.location;
   }
 
   flip() {
@@ -59,11 +56,13 @@ class Blog extends React.Component {
   render() {
     return (
       <Layout>
-        <Metadata title="Blog"
-                  description="Nikky Armstrong | Blog Archive"
+        <Metadata title="Tags"
+                  description="Nikky Armstrong | Tags"
                   pathname={this.location.pathname} />
         <div className={blogStyles.header}>
-          <div></div>
+          <div>
+            Posts matching: <span className={blogStyles.tags}>{this.pageContext.tag}</span>
+          </div>
           <FontAwesomeIcon className={blogStyles.sortArrow}
                            aria-label='sort-direction' title={this.state.tooltip}
                            icon={this.state.sortIcon} onClick={this.flip.bind(this)} />
@@ -71,6 +70,10 @@ class Blog extends React.Component {
         <ul className={blogStyles.posts}>
           {this.state.data.map(edge => {
             let tagArray = edge.node.frontmatter.tags?.split(',')
+            if (!tagArray || !tagArray.includes(this.pageContext.tag)) {
+              return;
+            }
+
             return (
               <li className={blogStyles.post} key={edge.node.id}>
                 {
@@ -92,7 +95,6 @@ class Blog extends React.Component {
                       Posted on {edge.node.frontmatter.date} <span> / </span>{" "}
                       {edge.node.timeToRead} min read
                     </span>
-
                   </div>
 
                   <p className={blogStyles.excerpt}>{edge.node.excerpt}</p>
@@ -113,13 +115,9 @@ class Blog extends React.Component {
             )
           })}
         </ul>
-        {/* <div className={blogStyles.meta}>
-          <Link to="/archive">Archive</Link> <span> / </span>{" "}
-          <input type="text" placeholder="search"></input>
-        </div> */}
       </Layout>
-    )
+    );
   }
 }
 
-export default Blog;
+export default TagSearch;

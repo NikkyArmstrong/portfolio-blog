@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
@@ -22,11 +22,35 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
+            frontmatter {
+              tags
+            }
           }
         }
       }
     }
   `)
+
+  let tags = new Set();
+  response.data.allMarkdownRemark.edges.forEach(edge => {
+    if (edge.node.frontmatter.tags) {
+      var postTags = edge.node.frontmatter.tags?.split(',');
+      postTags.forEach(tag => {
+        tags.add(tag);
+      });
+    }
+  });
+
+  tags.forEach(tag => {
+    createPage({
+      path: `/tags/${tag}`,
+      component: path.resolve("./src/templates/tag-search.js"),
+      context: {
+        tag: tag
+      }
+    })
+  });
+
   response.data.allMarkdownRemark.edges.forEach(edge => {
     createPage({
       path: `/blog/${edge.node.fields.slug}`,
@@ -34,6 +58,6 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug: edge.node.fields.slug,
       },
-    })
-  })
+    });
+  });
 }

@@ -19,6 +19,7 @@ export const query = graphql`
             gatsbyImageData
           }
         }
+        tags
       }
       timeToRead
       html
