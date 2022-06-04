@@ -17,6 +17,15 @@ export default function Experience({location}) {
 
       <p>The following lists selected parts of my career that I think are worth highlighting. For the full details of everything I've done since graduating, visit my <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/" target="_blank" rel="noreferrer">LinkedIn</OutboundLink>.</p>
 
+      <h2>Awards</h2>
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>Game Dev Heroes Nominee: Programming Hero</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://gamedevheroes.co/game-dev-heroes-shortlist-2022/" target="_blank" rel="noreferrer">Game Dev Heroes Shortlist 2022</OutboundLink></span>
+        <span className={experienceStyles.extraInfo}>
+          I am excited and honoured to have been included in the shortlist for Programming Hero in this year's Game Dev Heroes awards.
+        </span>
+      </section>
+
       <h2>Experience</h2>
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Lead Programmer</span>
