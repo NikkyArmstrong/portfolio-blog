@@ -1,13 +1,29 @@
 import React from "react"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faStream } from '@fortawesome/free-solid-svg-icons'
+import { faStream } from "@fortawesome/free-solid-svg-icons"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as experienceStyles from "../styles/experience.module.scss"
 
 export default function Speaking({location}) {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        image: file(base: { eq: "bbc-radio.jpg" }) {
+          publicURL
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    `
+  )
+
+  const image = getImage(data.image)
+
   return (
     <Layout>
       <Metadata title="Speaking"
@@ -21,16 +37,30 @@ export default function Speaking({location}) {
       <h2>Talks</h2>
 
       <section className={experienceStyles.experienceBlock}>
-        <span className={experienceStyles.title}>
-          Develop:Brighton 2021
-        </span>
+        <span className={experienceStyles.title}>Cheltenham Science Festival, June 2022</span>
         <span className={experienceStyles.talklink}>
-          <OutboundLink href="https://www.developconference.com/" target="_blank" rel="noreferrer">
-          Test Driven Development: A Mindset to Develop Games from the Start, Middle, or End
+          <OutboundLink href="https://www.cheltenhamfestivals.com/science-/whats-on/2022/games-dev-live-how-to-make-a-game-/" target="_blank" rel="noreferrer">
+            Games Dev Live: How To Make A Game
+          </OutboundLink>
+          </span>
+          <span className={experienceStyles.extraInfo}>
+            Corey, Alysia and I (along with the audience!) brainstormed a new game idea around the Science Festival theme "Be the Change". We went through each idea given to us, why it might work, things we need to consider, and how the process of taking a game from concept to prototype happens.
+          </span>
+      </section>
+
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>Women in Tech Global Conference, June 2022</span>
+        <span className={experienceStyles.talklink}>
+          <OutboundLink href="https://www.womentech.net/speaker/Nikky/Armstrong/68943" target="_blank" rel="noreferrer">
+            Software as a Service: Cultivating a respectful programming team in a multi-discipline games studio
           </OutboundLink>
         </span>
         <span className={experienceStyles.extraInfo}>
-          In October 2021, my Test Driven Development talk was accepted for the Develop:Brighton Conference. This talk has roots in my Honours' Thesis, and combines that with the 10+ years of industry experience I have enjoyed since then. Where TDD is most often focussed on discrete unit tests written at the beginning of a new project, my talk recognises that it is hard to reconcile that knowledge with your legacy, completely untested codebase, and with the many variables and interconnected systems that make up game development. I give an overview of TDD from the point of view of utilising it as a mindset, rather than a set of prescriptive rules. The talk uses real world examples to explain the value that TDD brings specifically into the games development environment, showing how this mindset will impact and improve your implementations, stability, and communication between disciplines.
+          In June 2022, I presented a condensed, 20 minute version of this talk for the Women in Tech Global Conference. This talk explores the idea that when you are part of a code team in a games studio, you operate in service of the other disciplines creating the game. The code team's customers are not just the end users, the players, but also the other teams in the studio. From putting requested features into the game, to completing tasks which unblock other disciplines' work, to creating tools which improve the pipelines of the rest of the studio, our work is varied and needs careful communication. This talk outlines some strategies I've employed as Lead of the code team at Silver Rain Games to help us serve the studio.
         </span>
       </section>
 
@@ -52,7 +82,39 @@ export default function Speaking({location}) {
         </span>
       </section>
 
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>
+          Develop:Brighton 2021
+        </span>
+        <span className={experienceStyles.talklink}>
+          <OutboundLink href="https://www.developconference.com/" target="_blank" rel="noreferrer">
+          Test Driven Development: A Mindset to Develop Games from the Start, Middle, or End
+          </OutboundLink>
+        </span>
+        <span className={experienceStyles.extraInfo}>
+          In October 2021, my Test Driven Development talk was accepted for the Develop:Brighton Conference. This talk has roots in my Honours' Thesis, and combines that with the 10+ years of industry experience I have enjoyed since then. Where TDD is most often focussed on discrete unit tests written at the beginning of a new project, my talk recognises that it is hard to reconcile that knowledge with your legacy, completely untested codebase, and with the many variables and interconnected systems that make up game development. I give an overview of TDD from the point of view of utilising it as a mindset, rather than a set of prescriptive rules. The talk uses real world examples to explain the value that TDD brings specifically into the games development environment, showing how this mindset will impact and improve your implementations, stability, and communication between disciplines.
+        </span>
+      </section>
+
       <h2>Panels & Interviews</h2>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>BBC Radio Gloucestershire</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://twitter.com/jojo_durrant/status/1535165167692046337?s=20&t=PUmCfyEsMdp6pde2cJnoVw" target="_blank" rel="noreferrer">
+        Twitter Post about the Interview
+        </OutboundLink></span>
+        <span className={experienceStyles.extraInfo}>
+          We were interviewed by BBC Radio about our involvement with the Cheltenham Science Festival!
+        </span>
+      </section>
+
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
 
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>She Plays Games Podcast</span>
@@ -90,32 +152,11 @@ export default function Speaking({location}) {
       </section>
 
       <h2>Upcoming</h2>
-      <section className={experienceStyles.experienceBlock}>
-        <span className={experienceStyles.title}>Women in Tech Global Conference, June 2022</span>
-        <span className={experienceStyles.talklink}>
-          <OutboundLink href="https://www.womentech.net/speaker/Nikky/Armstrong/68943" target="_blank" rel="noreferrer">
-            Software as a Service: Cultivating a respectful programming team in a multi-discipline games studio
-          </OutboundLink>
-        </span>
-        <span className={experienceStyles.extraInfo}>
-          When part of a code team in a games studio, you operate in service of the other disciplines creating the game. The code team's customers are not just the end users, the players, but also the other teams in the studio. From putting requested features into the game, to completing tasks which unblock other disciplines' work, to creating tools which improve the pipelines of the rest of the studio, our work is varied and needs careful communication. Part of creating a respectful environment includes understanding how to plan and schedule all the interlocking tasks in order to balance your own team goals with the dreams and vision of the Design team and with pre-requisite work required by other disciplines such as Artists and Animators. This talk will outline some strategies I've employed as Lead of the code team at Silver Rain Games to help us serve the studio.
-        </span>
-      </section>
-
-      <div className={experienceStyles.dividerDiv}>
-        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
-      </div>
 
       <section className={experienceStyles.experienceBlock}>
-        <span className={experienceStyles.title}>Cheltenham Science Festival, June 2022</span>
-        <span className={experienceStyles.talklink}>
-          <OutboundLink href="https://www.cheltenhamfestivals.com/science-/whats-on/2022/games-dev-live-how-to-make-a-game-/" target="_blank" rel="noreferrer">
-            Games Dev Live: How To Make A Game
-          </OutboundLink>
-          </span>
-          <span className={experienceStyles.extraInfo}>
-            Ever wondered what it takes to bring a game concept to life? Or what makes a successful game? In this dynamic event join us to see how a game idea develops live on our stage. Corey Brotherson and Nikky Armstrong from independent games development studio Silver Rain Games come together with presenter Alysia Judge to brainstorm an idea around our theme 'Be The Change'. They'll delve into why their ideas may work, how they could be best executed and the ways that the process could develop. Prepare for an exciting insight into games development.
-          </span>
+        <span className={experienceStyles.title}>How Do I Change My Career Into Games?</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://bit.ly/3ppBTxt" target="_blank" rel="noreferrer">Into Games Careers Festival, June 2022</OutboundLink></span>
+        <span className={experienceStyles.extraInfo}>The Into Games Career Festival is a free four-day event to provide inspiration and information on anyone looking to get a job or take their career in games to the next level. I'll be speaking on the panel "How Do I Change My Career Into Games?" about my path from mining simulation software to AAA and beyond!</span>
       </section>
 
       <div className={experienceStyles.dividerDiv}>
