@@ -1,29 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
 import Metadata from "../components/metadata"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStream } from "@fortawesome/free-solid-svg-icons"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import * as experienceStyles from "../styles/experience.module.scss"
 
 export default function Speaking({location}) {
-  const data = useStaticQuery(
-    graphql`
-      query {
-        image: file(base: { eq: "bbc-radio.jpg" }) {
-          publicURL
-          childImageSharp {
-            gatsbyImageData
-          }
-        }
-      }
-    `
-  )
-
-  const image = getImage(data.image)
-
   return (
     <Layout>
       <Metadata title="Speaking"
@@ -34,7 +18,23 @@ export default function Speaking({location}) {
       <p>I enjoy public speaking, and my first talk in the UK games industry at Develop:Brighton 2021 received fantastic feedback. As a result, I was invited to give this talk again at an internal event for a large UK based studio. I have been invited back to Develop in 2022, and have a couple more talks lined up this year as well.</p>
       <p>If you would like to talk to me about your event, feel free to get in touch via <OutboundLink href="https://twitter.com/nikkyarmstrong" target="_blank" rel="noreferrer">Twitter</OutboundLink>, <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/" target="_blank" rel="noreferrer">LinkedIn</OutboundLink>, or my <Link to="/contact">Contact page</Link>.</p>
 
-      <h2>Talks</h2>
+      <h2>Upcoming</h2>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>
+          Develop:Brighton, July 2022
+        </span>
+        <span className={experienceStyles.talklink}>
+          <OutboundLink href="https://www.developconference.com/whats-on/speakers/speaker-detail/nikky-armstrong" target="_blank" rel="noreferrer">
+          Is Your Code Working For You?
+          </OutboundLink>
+        </span>
+        <span className={experienceStyles.extraInfo}>
+          Is your code working for you, or are you working for your code? Are you writing the same code you've always written, and are worried whether it's the best way to do things? Are you following "best practice" advice, but want to understand why those are the rules? Game development is its own ball game, and there are sometimes unwritten rules about which language best practices are applicable. Sometimes a language evolves, or we switch languages, and the best practices we used to swear by now don't make sense. Sometimes we're confident we know exactly what a code snippet will do, and when we run it - it doesn't quite do what we expect. This talk will present tips and tricks for games programming, from beginner to advanced, C++, C#, and beyond. It will present the good, the bad, and the sometimes hilarious of games programming, using real examples and code snippets, and provide tools and exercises to take you beyond this talk to explore deeper into the code you write every day.
+        </span>
+      </section>
+
+      <h2>Past Talks</h2>
 
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Cheltenham Science Festival, June 2022</span>
@@ -103,6 +103,16 @@ export default function Speaking({location}) {
       <h2>Panels & Interviews</h2>
 
       <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>How Do I Change My Career Into Games?</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://bit.ly/3ppBTxt" target="_blank" rel="noreferrer">Into Games Careers Festival, June 2022</OutboundLink></span>
+        <span className={experienceStyles.extraInfo}>The Into Games Career Festival is a free four-day event to provide inspiration and information on anyone looking to get a job or take their career in games to the next level. I'll be speaking on the panel "How Do I Change My Career Into Games?" about my path from mining simulation software to AAA and beyond!</span>
+      </section>
+
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
+
+      <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>BBC Radio Gloucestershire</span>
         <span className={experienceStyles.talklink}><OutboundLink href="https://twitter.com/jojo_durrant/status/1535165167692046337?s=20&t=PUmCfyEsMdp6pde2cJnoVw" target="_blank" rel="noreferrer">
         Twitter Post about the Interview
@@ -149,32 +159,6 @@ export default function Speaking({location}) {
         <span className={experienceStyles.title}>Careers Talks</span>
         <span className={experienceStyles.talklink}><OutboundLink href="https://youtu.be/tFIRqBHg-v0?t=870" target="_blank" rel="noreferrer">Ukie</OutboundLink> & <OutboundLink href="https://youtu.be/Rh5qXr_s0Y0?t=392" target="_blank" rel="noreferrer">Games Jobs Live</OutboundLink></span>
         <span className={experienceStyles.extraInfo}>Links to a couple of careers talks I have given recently. I'm always excited to speak to people considering a career in the games industry about potential pathways into programming.</span>
-      </section>
-
-      <h2>Upcoming</h2>
-
-      <section className={experienceStyles.experienceBlock}>
-        <span className={experienceStyles.title}>How Do I Change My Career Into Games?</span>
-        <span className={experienceStyles.talklink}><OutboundLink href="https://bit.ly/3ppBTxt" target="_blank" rel="noreferrer">Into Games Careers Festival, June 2022</OutboundLink></span>
-        <span className={experienceStyles.extraInfo}>The Into Games Career Festival is a free four-day event to provide inspiration and information on anyone looking to get a job or take their career in games to the next level. I'll be speaking on the panel "How Do I Change My Career Into Games?" about my path from mining simulation software to AAA and beyond!</span>
-      </section>
-
-      <div className={experienceStyles.dividerDiv}>
-        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
-      </div>
-
-      <section className={experienceStyles.experienceBlock}>
-        <span className={experienceStyles.title}>
-          Develop:Brighton, July 2022
-        </span>
-        <span className={experienceStyles.talklink}>
-          <OutboundLink href="https://www.developconference.com/whats-on/speakers/speaker-detail/nikky-armstrong" target="_blank" rel="noreferrer">
-          Is Your Code Working For You?
-          </OutboundLink>
-        </span>
-        <span className={experienceStyles.extraInfo}>
-          Is your code working for you, or are you working for your code? Are you writing the same code you've always written, and are worried whether it's the best way to do things? Are you following "best practice" advice, but want to understand why those are the rules? Game development is its own ball game, and there are sometimes unwritten rules about which language best practices are applicable. Sometimes a language evolves, or we switch languages, and the best practices we used to swear by now don't make sense. Sometimes we're confident we know exactly what a code snippet will do, and when we run it - it doesn't quite do what we expect. This talk will present tips and tricks for games programming, from beginner to advanced, C++, C#, and beyond. It will present the good, the bad, and the sometimes hilarious of games programming, using real examples and code snippets, and provide tools and exercises to take you beyond this talk to explore deeper into the code you write every day.
-        </span>
       </section>
     </Layout>
   )
