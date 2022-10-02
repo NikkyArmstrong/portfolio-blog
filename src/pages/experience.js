@@ -19,10 +19,10 @@ export default function Experience({location}) {
 
       <h2>Awards</h2>
       <section className={experienceStyles.experienceBlock}>
-        <span className={experienceStyles.title}>Game Dev Heroes Nominee: Programming Hero</span>
-        <span className={experienceStyles.talklink}><OutboundLink href="https://gamedevheroes.co/game-dev-heroes-shortlist-2022/" target="_blank" rel="noreferrer">Game Dev Heroes Shortlist 2022</OutboundLink></span>
+        <span className={experienceStyles.title}>Game Dev Heroes 2022: Programming Hero</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://gamedevheroes.co/2022-game-dev-heroes/the-winners-of-game-dev-heroes-2022/" target="_blank" rel="noreferrer">Game Dev Heroes 2022</OutboundLink></span>
         <span className={experienceStyles.extraInfo}>
-          I am excited and honoured to have been included in the shortlist for Programming Hero in this year's Game Dev Heroes awards.
+          I was excited and honoured to have been awarded "Programming Hero" in 2022's Game Dev Heroes awards.
         </span>
       </section>
 

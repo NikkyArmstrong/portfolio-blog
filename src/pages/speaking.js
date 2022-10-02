@@ -18,7 +18,9 @@ export default function Speaking({location}) {
       <p>I enjoy public speaking, and my first talk in the UK games industry at Develop:Brighton 2021 received fantastic feedback. As a result, I was invited to give this talk again at an internal event for a large UK based studio. I have been invited back to Develop in 2022, and have a couple more talks lined up this year as well.</p>
       <p>If you would like to talk to me about your event, feel free to get in touch via <OutboundLink href="https://twitter.com/nikkyarmstrong" target="_blank" rel="noreferrer">Twitter</OutboundLink>, <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/" target="_blank" rel="noreferrer">LinkedIn</OutboundLink>, or my <Link to="/contact">Contact page</Link>.</p>
 
-      <h2>Upcoming</h2>
+      {/* <h2>Upcoming</h2> */}   
+
+      <h2>Past Talks</h2>
 
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>
@@ -30,11 +32,13 @@ export default function Speaking({location}) {
           </OutboundLink>
         </span>
         <span className={experienceStyles.extraInfo}>
-          Is your code working for you, or are you working for your code? Are you writing the same code you've always written, and are worried whether it's the best way to do things? Are you following "best practice" advice, but want to understand why those are the rules? Game development is its own ball game, and there are sometimes unwritten rules about which language best practices are applicable. Sometimes a language evolves, or we switch languages, and the best practices we used to swear by now don't make sense. Sometimes we're confident we know exactly what a code snippet will do, and when we run it - it doesn't quite do what we expect. This talk will present tips and tricks for games programming, from beginner to advanced, C++, C#, and beyond. It will present the good, the bad, and the sometimes hilarious of games programming, using real examples and code snippets, and provide tools and exercises to take you beyond this talk to explore deeper into the code you write every day.
+          Is your code working for you, or are you working for your code? Are you writing the same code you've always written, and are worried whether it's the best way to do things? Are you following "best practice" advice, but want to understand why those are the rules? Game development is its own ball game, and there are sometimes unwritten rules about which language best practices are applicable. And sometimes - those rules were applicable at one time, but now, don't matter so much. Sometimes we're confident we know exactly what a code snippet will do, and when we run it - it doesn't quite do what we expect. This talk went through some "best practice" advice on how we've been told to write certain programming constructs, explaining which rules we need to stick to and which we can confidently throw out.
         </span>
       </section>
 
-      <h2>Past Talks</h2>
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
 
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Cheltenham Science Festival, June 2022</span>
