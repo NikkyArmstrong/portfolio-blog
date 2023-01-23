@@ -13,7 +13,7 @@ export default function Experience({location}) {
                 description="Nikky Armstrong | Work History and Experience"
                 pathname={location.pathname} />
       <h1> </h1>
-      <p>I joined the games industry in March 2020 with a promotion from my role in Australia as Intermediate level Software Engineer to Senior Gameplay Programmer at Ubisoft Reflections. I quickly showed that as a programmer, the difference between the tech and games industries is easily bridgeable, making myself an invaluable member of the team. By July 2021, I had been offered the position of Lead Programmer at Silver Rain Games, where I am able to not only use my strong technical skills, but also my love of mentoring, and my love of planning spreadsheets.</p>
+      <p>I joined the games industry in March 2020 with a promotion from my role in Australia as Intermediate level Software Engineer to Senior Gameplay Programmer at Ubisoft Reflections. I quickly showed that as a programmer, the difference between the tech and games industries is easily bridgeable, making myself an invaluable member of the team. By July 2021, I had been offered the position of Lead Programmer at Silver Rain Games, where I am able to not only use my strong technical skills, but also my love of mentoring, and my love of planning spreadsheets. I am now Lead Unreal Developer with Flaming Fowl Studios.</p>
 
       <p>The following lists selected parts of my career that I think are worth highlighting. For the full details of everything I've done since graduating, visit my <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/" target="_blank" rel="noreferrer">LinkedIn</OutboundLink>.</p>
 
@@ -27,10 +27,24 @@ export default function Experience({location}) {
       </section>
 
       <h2>Experience</h2>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>Lead Unreal Developer</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://www.flamingfowlstudios.com/" target="_blank" rel="noreferrer">Flaming Fowl Studios</OutboundLink></span>
+        <span className={experienceStyles.year}>2023</span>
+        <span className={experienceStyles.extraInfo}>
+          I am responsible for leading the development of backend work in Unreal, supporting the Blueprint programmers.
+        </span>
+      </section>
+
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
+
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Lead Programmer</span>
         <span className={experienceStyles.talklink}><OutboundLink href="https://silverraingames.com" target="_blank" rel="noreferrer">Silver Rain Games</OutboundLink></span>
-        <span className={experienceStyles.year}>2021-</span>
+        <span className={experienceStyles.year}>2021-2022</span>
         <span className={experienceStyles.extraInfo}>
           I was brought on as Lead Programmer for Silver Rain's existing programming team of three developers, who had until then been operating without a Lead. My initial steps were to instate a formal code review process, review the coding standards, start a fortnightly knowledge share meeting, and add sprint retrospectives to our agile process. I also set to work planning a full project backlog for the programming team representing all currently known work yet to be completed for the team, and assigning that work to approximate milestones. I formalised the daily standups, ensuring the team was keeping task tracking up to date so I could assist with scheduling work and setting expectations with the rest of the studio about what we can realistically deliver. I have worked with my team to ensure that we operate internally and with other disciplines respectfully, and that we are always growing together to improve our coding skills. Code-wise, I have made expansive changes to our internal tools so they meet the needs of the rest of the studio, and contributed to gameplay and engine improvements.
         </span>
@@ -62,6 +76,28 @@ export default function Experience({location}) {
         </span>
       </section>
 
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>Software Engineer</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://vixtechnology.com/" target="_blank" rel="noreferrer">Vix Technologies</OutboundLink></span>
+        <span className={experienceStyles.year}>2014-2015</span>
+        <span className={experienceStyles.extraInfo}></span>
+      </section>
+
+      <div className={experienceStyles.dividerDiv}>
+        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
+      </div>
+
+      <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>Software Engineer</span>
+        <span className={experienceStyles.talklink}><OutboundLink href="https://www.maptek.com/" target="_blank" rel="noreferrer">Maptek</OutboundLink></span>
+        <span className={experienceStyles.year}>2012-2014</span>
+        <span className={experienceStyles.extraInfo}></span>
+      </section>
+
       <h2>Volunteering</h2>
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Mentor</span>
@@ -79,7 +115,7 @@ export default function Experience({location}) {
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Mentor</span>
         <span className={experienceStyles.talklink}><OutboundLink href="https://www.thegirlsnetwork.org.uk/" target="_blank" rel="noreferrer">The Girls' Network</OutboundLink></span>
-        <span className={experienceStyles.year}>2021</span>
+        <span className={experienceStyles.year}>2021, 2022</span>
         <span className={experienceStyles.extraInfo}>
           Through the Girls Network program I am mentoring a high school aged girl. The program aims to provide work and life skills to mentees, for example confidence, communication, personal finance, wellbeing, and to connect them with opportunities to pursue their goals.
         </span>
