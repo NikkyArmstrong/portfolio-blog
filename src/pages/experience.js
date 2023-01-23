@@ -87,10 +87,6 @@ export default function Experience({location}) {
         <span className={experienceStyles.extraInfo}></span>
       </section>
 
-      <div className={experienceStyles.dividerDiv}>
-        <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider' icon={faStream} />
-      </div>
-
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Software Engineer</span>
         <span className={experienceStyles.talklink}><OutboundLink href="https://www.maptek.com/" target="_blank" rel="noreferrer">Maptek</OutboundLink></span>
