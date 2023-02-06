@@ -98,9 +98,9 @@ export default function Experience({location}) {
       <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>Mentor</span>
         <span className={experienceStyles.talklink}><OutboundLink href="https://www.limitbreak.co.uk/" target="_blank" rel="noreferrer">Limit Break</OutboundLink></span>
-        <span className={experienceStyles.year}>2020, 2021</span>
+        <span className={experienceStyles.year}>2020-2022</span>
         <span className={experienceStyles.extraInfo}>
-          Limit Break is a six month mentoring relationship with a person from an underrepresented group working in the UK games industry. In 2020 I was paired with a person in their final year of university wanting to pursue a career in games. We met together every 2-3 weeks for a video call, and I continued these meetings beyond the initial six months so that I could support them through the end of their degree. In 2021 I volunteered again, taking on two mentees, and I am looking forward to the 2022 intake.
+          Limit Break is a six month mentoring relationship with a person from an underrepresented group working in the UK games industry. Each year I was paired with a person in their early career to help them navigate the work world and the games industry. We met together every 2-3 weeks for a video call, and I have continued these meetings beyond the initial six months in a lot of cases so I can continue to support where I can.
         </span>
       </section>
 
