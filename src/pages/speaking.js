@@ -51,6 +51,23 @@ export default function Speaking({location}) {
 
           <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>
+          Into Games Careers Talks, WASD, London, April 2023
+        </span>
+              <span className={experienceStyles.talklink}>
+          <OutboundLink href="#">How to Perfect a Technical Portfolio</OutboundLink>
+        </span>
+              <span className={experienceStyles.extraInfo}>
+          I was invited onto the Careers Talks stage at WASD conference in London, to speak about the "Dos and Dont's" of creating a successful application for a technical role in the games industry.
+        </span>
+          </section>
+
+          <div className={experienceStyles.dividerDiv}>
+              <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider'
+                               icon={faStream}/>
+          </div>
+
+          <section className={experienceStyles.experienceBlock}>
+        <span className={experienceStyles.title}>
           Develop:Brighton, July 2022
         </span>
               <span className={experienceStyles.talklink}>
