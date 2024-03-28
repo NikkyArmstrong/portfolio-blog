@@ -18,10 +18,9 @@ export default function Speaking({location}) {
               groups into jobs in tech and games. As well as my involvement with mentoring programs, which can be found
               on my <Link href="/experience">Experience</Link> page, this page lists details of events I have been
               invited to be a part of.</p>
-          <p>I enjoy public speaking, and my first talk in the UK games industry at Develop:Brighton 2021 received
-              fantastic feedback. As a result, I was invited to give this talk again at an internal event for a large UK
-              based studio. I was then invited back to Develop in 2022, and after that conference was again invited to
-              give my talk to a University group.</p>
+          <p>I am an engaging and confident public speaker, and have been fortunate to have had talks accepted twice to
+              Develop Conference in the UK. Following these talks, I have received further opportunities to deliver them
+              internally to studios and universities, which I am always grateful for.</p>
           <p>If you would like to talk to me about your event, feel free to get in touch via <OutboundLink
               href="https://twitter.com/nikkyarmstrong" target="_blank"
               rel="noreferrer">Twitter</OutboundLink>, <OutboundLink href="https://www.linkedin.com/in/nikky-armstrong/"
@@ -38,12 +37,17 @@ export default function Speaking({location}) {
           Mediadesign University of Applied Sciences, Berlin, June 2023
         </span>
               <span className={experienceStyles.talklink}>
-          Is Your Code Working For You?
+          <OutboundLink href="#">Is Your Code Working For You?</OutboundLink>
         </span>
               <span className={experienceStyles.extraInfo}>
-          I was invited to give the same talk I gave at Develop again to a group of University students, after their lecturer attended my initial talk. After the talk, I had was excited to be invited to see the students' projects and provide feedback.
+          I was invited to give the same talk I gave at Develop again to a group of University students, after their lecturer attended my initial talk. After the talk, I was excited to have the opportunity to see the students' projects and provide feedback.
         </span>
           </section>
+
+          <div className={experienceStyles.dividerDiv}>
+              <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider'
+                               icon={faStream}/>
+          </div>
 
           <section className={experienceStyles.experienceBlock}>
         <span className={experienceStyles.title}>

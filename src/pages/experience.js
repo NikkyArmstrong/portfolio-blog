@@ -49,14 +49,6 @@ export default function Experience({location}) {
               </span>
           </section>
 
-          <section className={experienceStyles.experienceBlock}>
-              <span className={experienceStyles.title}>Lead Unreal Developer</span>
-              <span className={experienceStyles.talklink}><OutboundLink href="https://www.flamingfowlstudios.com/"
-                                                                        target="_blank" rel="noreferrer">Flaming Fowl Studios</OutboundLink></span>
-              <span className={experienceStyles.year}>2023</span>
-              <span className={experienceStyles.extraInfo}></span>
-          </section>
-
           <div className={experienceStyles.dividerDiv}>
               <FontAwesomeIcon className={experienceStyles.divider} aria-label='divider' title='divider'
                                icon={faStream}/>
